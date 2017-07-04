@@ -1,0 +1,68 @@
+#include "stdafx.h"
+#include<stdio.h>
+
+
+int main()
+{
+	char a=1, s = 0, m = 0, g = 0, d = 0;
+	int i, t;
+	while (a == 1)
+	{
+		
+		printf("Are you single? Y or N\n");
+		s = getchar();
+		getchar();
+		printf("Are you a head of household? Y or N\n");
+		m = getchar();
+		getchar();
+		if (s == 'N')
+		{
+			printf("Did you divorce? Y or N\n");
+			d = getchar();
+			getchar();
+		}
+		printf("Please enter your income:\n");
+		scanf("%d",&i);
+		if (s == 'Y'&&m=='N')
+		{
+			if (i < 17850)
+				t = i*0.15;
+			else t = 17850 * 0.15 + (i- 17850)*0.28;
+			printf("You are single and you are not the head of household,so by 1988 tax law,you would pay:%d$",t);
+
+		}
+		 if(m=='Y')
+			{
+				if (i < 23900)
+					t = i*0.15;
+				else t = 123900* 0.15 + (i - 23900)*0.28;
+				printf("You are the head of household,so by 1988 tax law,you would pay:%d$", t);
+
+			}
+		
+		 if (s == 'N')
+		 {
+			
+			 if (d == 'N')
+			 {
+				 if (i < 29750)
+					 t = i*0.15;
+				 else t = 29750 * 0.15 + (i - 29750)*0.28;
+				 printf("You are married,and you are not divorce ,so by 1988 tax law,you and your wife together would pay:%d$", t);
+			 }
+			 if (d == 'Y') {
+				 if (i < 14875)
+					 t = i*0.15;
+				 else t = 14875 * 0.15 + (i - 14875)*0.28;
+				 printf("You are married,and you are  divorce ,so by 1988 tax law,you would pay:%d$", t);
+			 }
+		 }
+		
+		 printf("\n");
+
+		
+	}
+
+    return 0;
+}
+
